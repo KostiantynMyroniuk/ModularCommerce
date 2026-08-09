@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/Api/">
+    <Project Path="src/Host/ModularCommerce.API/ModularCommerce.API.csproj" Id="5843b9e6-a648-444a-9a4c-939baabe3c5b" />
+  </Folder>
+  <Folder Name="/Modules/">
+    <Project Path="src/Modules/ModularCommerce.Modules.Catalog/ModularCommerce.Modules.Catalog.csproj" />
+    <Project Path="src/Modules/ModularCommerce.Modules.Inventory/ModularCommerce.Modules.Inventory.csproj" />
+    <Project Path="src/Modules/ModularCommerce.Modules.Orders/ModularCommerce.Modules.Orders.csproj" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Packages.props" />
+  </Folder>
+</Solution>
