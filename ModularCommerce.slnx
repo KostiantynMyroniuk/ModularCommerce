@@ -7,6 +7,9 @@
     <Project Path="src/Modules/ModularCommerce.Modules.Inventory/ModularCommerce.Modules.Inventory.csproj" />
     <Project Path="src/Modules/ModularCommerce.Modules.Orders/ModularCommerce.Modules.Orders.csproj" />
   </Folder>
+  <Folder Name="/Shared/">
+    <Project Path="src/Shared/ModularCommerce.Shared/ModularCommerce.Shared.csproj" Id="2831ad8e-3d87-435a-a4d9-4cab97d4349e" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path="Directory.Packages.props" />
   </Folder>

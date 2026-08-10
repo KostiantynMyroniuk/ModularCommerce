@@ -13,7 +13,11 @@
     </ItemGroup>
 
     <ItemGroup>
-    <Folder Include="Features\" />
+    <Folder Include="Features\UpdateProduct\" />
   </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Shared\ModularCommerce.Shared\ModularCommerce.Shared.csproj" />
+    </ItemGroup>
 
 </Project>

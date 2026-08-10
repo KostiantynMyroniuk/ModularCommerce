@@ -19,4 +19,8 @@
     <Folder Include="Extensions\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\ModularCommerce.Shared\ModularCommerce.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

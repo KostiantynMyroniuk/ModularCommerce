@@ -15,7 +15,7 @@ namespace ModularCommerce.Modules.Catalog.Models
 
         private Product() { }
 
-        public Product Create(
+        public static Product Create(
             string name,
             string? description,
             string sku,

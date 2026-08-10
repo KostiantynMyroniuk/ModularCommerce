@@ -18,5 +18,9 @@
     <Folder Include="Infrastructure\" />
     <Folder Include="Models\" />
   </ItemGroup>
+    
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\ModularCommerce.Shared\ModularCommerce.Shared.csproj" />
+  </ItemGroup>
 
 </Project>
