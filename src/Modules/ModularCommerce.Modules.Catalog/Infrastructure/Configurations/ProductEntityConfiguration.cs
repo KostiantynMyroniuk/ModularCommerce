@@ -25,6 +25,11 @@ namespace ModularCommerce.Modules.Catalog.Infrastructure.Configurations
 
             builder.Property(p => p.Price)
                 .HasPrecision(18, 2);
+
+            builder.HasOne<Product>()
+                .WithMany()
+                .HasForeignKey(p => p.CategoryId)
+                .OnDelete(DeleteBehavior.Restrict);  
         }
     }
 }

@@ -13,7 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-    <Folder Include="Features\UpdateProduct\" />
+    <Folder Include="Features\Products\UpdateProduct\" />
   </ItemGroup>
 
     <ItemGroup>

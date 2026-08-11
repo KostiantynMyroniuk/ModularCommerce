@@ -8,23 +8,23 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ModularCommerce.Modules.Catalog.Features.GetProductById
+namespace ModularCommerce.Modules.Catalog.Features.Products.GetProductsPaginated
 {
-    internal class GetProductEndpoint : IEndpoint
+    internal class GetProductsPaginatedEndpoint : IEndpoint
     {
         public void MapEndpoint(IEndpointRouteBuilder app)
         {
-            app.MapGet("/api/catalog/{productId}", async (
-                [FromRoute] Guid productId,
+            app.MapGet("/api/catalog", async (
+                [FromQuery] int pageNumber,
+                [FromQuery] int pageSize,
                 ISender sender,
                 CancellationToken ct) =>
             {
-                var response = await sender.Send(new GetProductQuery(productId), ct);
+                var response = await sender.Send(new GetProductsPaginatedQuery(pageNumber, pageSize), ct);
 
-                return response.IsSuccess 
-                    ? Results.Ok(response.Value) 
-                    : Results.NotFound(response.ErrorMessage);
+                return Results.Ok(response);
             });
+
         }
     }
 }
