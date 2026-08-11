@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ModularCommerce.Modules.Catalog.Features.CreateProduct
+namespace ModularCommerce.Modules.Catalog.Features.Products.CreateProduct
 {
     internal class CreateProductEndpoint : IEndpoint
     {

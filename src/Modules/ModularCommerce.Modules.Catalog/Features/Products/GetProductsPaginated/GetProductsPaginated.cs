@@ -1,14 +1,13 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using ModularCommerce.Modules.Catalog.Dtos;
-using ModularCommerce.Modules.Catalog.Features.GetProductById;
 using ModularCommerce.Modules.Catalog.Infrastructure;
 using ModularCommerce.Shared.Pagination;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ModularCommerce.Modules.Catalog.Features.GetProductsPaginated
+namespace ModularCommerce.Modules.Catalog.Features.Products.GetProductsPaginated
 {
     internal record GetProductsPaginatedQuery(
         int PageNumber, 

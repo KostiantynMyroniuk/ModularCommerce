@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ModularCommerce.Modules.Catalog.Features.DeleteProduct
+namespace ModularCommerce.Modules.Catalog.Features.Products.DeleteProduct
 {
     internal class DeleteProductEndpoint : IEndpoint
     {

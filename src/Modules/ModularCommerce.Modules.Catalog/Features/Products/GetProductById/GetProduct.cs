@@ -7,7 +7,7 @@ using System.Text;
 using ModularCommerce.Modules.Catalog.Models;
 using ModularCommerce.Modules.Catalog.Dtos;
 
-namespace ModularCommerce.Modules.Catalog.Features.GetProductById
+namespace ModularCommerce.Modules.Catalog.Features.Products.GetProductById
 {
     internal record GetProductQuery(Guid ProductId) : IRequest<Result<GetProductDto>>;
 
