@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ModularCommerce.Modules.Catalog.Infrastructure;
@@ -16,7 +17,7 @@ namespace ModularCommerce.Modules.Catalog.Extensions
         {
             services.AddDbContext<CatalogDbContext>(options =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("CatalogDb"));
+                options.UseSqlServer(configuration.GetConnectionString("ModularCommerceDb"));
             });
 
             services.AddMediatR(config =>
@@ -27,6 +28,13 @@ namespace ModularCommerce.Modules.Catalog.Extensions
             services.AddEndpoints(Assembly.GetExecutingAssembly());
 
             return services;
+        }
+
+        public static async Task UseCatalogMigrations(this WebApplication app)
+        {
+            using var scope = app.Services.CreateScope();
+            var context = scope.ServiceProvider.GetRequiredService<CatalogDbContext>();
+            await context.Database.MigrateAsync();
         }
     }
 }

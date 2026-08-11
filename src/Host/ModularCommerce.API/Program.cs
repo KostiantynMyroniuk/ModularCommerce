@@ -11,6 +11,8 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
+    await app.UseCatalogMigrations();
+
     app.MapOpenApi();
     app.UseSwaggerUI(options => options.SwaggerEndpoint("/openapi/v1.json", "openapi"));
 }

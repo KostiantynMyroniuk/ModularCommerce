@@ -11,6 +11,10 @@
     <Project Path="src/Shared/ModularCommerce.Shared/ModularCommerce.Shared.csproj" Id="2831ad8e-3d87-435a-a4d9-4cab97d4349e" />
   </Folder>
   <Folder Name="/Solution Items/">
+    <File Path=".env" />
     <File Path="Directory.Packages.props" />
   </Folder>
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
 </Solution>

@@ -19,6 +19,10 @@ namespace ModularCommerce.Modules.Catalog.Infrastructure.Configurations
                 .IsRequired(false)
                 .HasMaxLength(512);
 
+            builder
+                .HasIndex(p => p.Sku)
+                .IsUnique();
+
             builder.Property(p => p.Sku)
                 .IsRequired()
                 .HasMaxLength(50);
@@ -26,7 +30,7 @@ namespace ModularCommerce.Modules.Catalog.Infrastructure.Configurations
             builder.Property(p => p.Price)
                 .HasPrecision(18, 2);
 
-            builder.HasOne<Product>()
+            builder.HasOne<Category>()
                 .WithMany()
                 .HasForeignKey(p => p.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);  

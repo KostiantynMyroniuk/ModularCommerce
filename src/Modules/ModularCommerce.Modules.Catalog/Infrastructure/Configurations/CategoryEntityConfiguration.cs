@@ -21,9 +21,9 @@ namespace ModularCommerce.Modules.Catalog.Infrastructure.Configurations
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasData(
-                Category.Create("Auto"),
-                Category.Create("Sport"),
-                Category.Create("Beauty")
+                new { Id = Guid.Parse("11111111-1111-1111-1111-111111111111"), CategoryName = "Auto", ParentCategoryId = (Guid?)null },
+                new { Id = Guid.Parse("22222222-2222-2222-2222-222222222222"), CategoryName = "Sport", ParentCategoryId = (Guid?)null },
+                new { Id = Guid.Parse("33333333-3333-3333-3333-333333333333"), CategoryName = "Beauty", ParentCategoryId = (Guid?)null }
             );
         }
     }
