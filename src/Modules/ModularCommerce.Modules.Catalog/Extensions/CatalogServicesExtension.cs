@@ -2,7 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ModularCommerce.Modules.Catalog.Abstractions;
 using ModularCommerce.Modules.Catalog.Infrastructure;
+using ModularCommerce.Modules.Catalog.Infrastructure.Services;
 using ModularCommerce.Shared.Enpoints;
 using System;
 using System.Collections.Generic;
@@ -19,6 +21,8 @@ namespace ModularCommerce.Modules.Catalog.Extensions
             {
                 options.UseSqlServer(configuration.GetConnectionString("ModularCommerceDb"));
             });
+
+            services.AddScoped<IProductCatalogReader, ProductCatalogReader>();
 
             services.AddMediatR(config =>
             {

@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\ModularCommerce.Modules.Catalog\ModularCommerce.Modules.Catalog.csproj" />
+    <ProjectReference Include="..\..\Modules\ModularCommerce.Modules.Orders\ModularCommerce.Modules.Orders.csproj" />
   </ItemGroup>
 
 </Project>
