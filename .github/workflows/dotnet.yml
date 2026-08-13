@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 10.0.x
     - name: Restore dependencies
-      run: dotnet restore ModularCommerce.sln
+      run: dotnet restore ModularCommerce.slnx
     - name: Build
-      run: dotnet build ModularCommerce.sln --no-restore
+      run: dotnet build ModularCommerce.slnx --no-restore
     - name: Test
-      run: dotnet test ModularCommerce.sln --no-build --verbosity normal
+      run: dotnet test ModularCommerce.slnx --no-build --verbosity normal
