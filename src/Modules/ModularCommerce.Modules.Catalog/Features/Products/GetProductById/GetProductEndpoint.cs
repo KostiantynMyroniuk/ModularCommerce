@@ -24,7 +24,8 @@ namespace ModularCommerce.Modules.Catalog.Features.Products.GetProductById
                 return response.IsSuccess 
                     ? Results.Ok(response.Value) 
                     : Results.NotFound(response.ErrorMessage);
-            });
+            })
+            .WithTags("Catalog");
         }
     }
 }

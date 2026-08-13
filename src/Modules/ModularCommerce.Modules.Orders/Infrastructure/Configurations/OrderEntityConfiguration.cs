@@ -43,7 +43,8 @@ namespace ModularCommerce.Modules.Orders.Infrastructure.Configurations
                 .HasMaxLength(20);
 
             builder.Property(order => order.Status)
-                .IsRequired();
+                .IsRequired()
+                .HasConversion<string>();
 
             builder.Property(order => order.CreatedAt)
                 .IsRequired();

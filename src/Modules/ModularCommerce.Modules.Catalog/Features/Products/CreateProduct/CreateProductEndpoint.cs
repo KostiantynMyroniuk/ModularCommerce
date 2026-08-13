@@ -21,7 +21,8 @@ namespace ModularCommerce.Modules.Catalog.Features.Products.CreateProduct
                 var response = await sender.Send(command, ct);
 
                 return Results.Created($"/api/catalog/{response.Value}", response.Value);
-            });
+            })
+            .WithTags("Catalog");
         }
     }
 }

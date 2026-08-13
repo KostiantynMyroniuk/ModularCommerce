@@ -23,7 +23,8 @@ namespace ModularCommerce.Modules.Catalog.Features.Products.GetProductsPaginated
                 var response = await sender.Send(new GetProductsPaginatedQuery(pageNumber, pageSize), ct);
 
                 return Results.Ok(response);
-            });
+            })
+            .WithTags("Catalog");
 
         }
     }

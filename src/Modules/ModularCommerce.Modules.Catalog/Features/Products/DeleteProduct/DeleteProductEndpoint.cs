@@ -24,7 +24,8 @@ namespace ModularCommerce.Modules.Catalog.Features.Products.DeleteProduct
                 return response.IsSuccess 
                     ? Results.NoContent() 
                     : Results.NotFound(response.ErrorMessage);
-            });
+            })
+            .WithTags("Catalog");
         }
     }
 }

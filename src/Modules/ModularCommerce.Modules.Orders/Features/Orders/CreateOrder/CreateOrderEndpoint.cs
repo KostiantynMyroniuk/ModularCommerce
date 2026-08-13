@@ -20,7 +20,8 @@ namespace ModularCommerce.Modules.Orders.Features.Orders.CreateOrder
                 return response.IsSuccess
                     ? Results.Created($"/api/orders/{response.Value}", response.Value)
                     : Results.BadRequest(response.ErrorMessage);
-            });
+            })
+            .WithTags("Orders");
         }
     }
 }

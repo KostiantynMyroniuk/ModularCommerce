@@ -23,15 +23,18 @@ namespace ModularCommerce.Modules.Orders.Features.Orders.CreateOrder
     {
         private readonly OrdersDbContext _context;
         private readonly IProductCatalogReader _productCatalogReader;
+        private readonly IMediator _mediator;
         private readonly ILogger<CreateOrderCommandHandler> _logger;
 
         public CreateOrderCommandHandler(
             OrdersDbContext context,
             IProductCatalogReader productCatalogReader,
+            IMediator mediator,
             ILogger<CreateOrderCommandHandler> logger)
         {
             _context = context;
             _productCatalogReader = productCatalogReader;
+            _mediator = mediator;
             _logger = logger;
         }
 

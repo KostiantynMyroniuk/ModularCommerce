@@ -1,8 +1,16 @@
 using ModularCommerce.Modules.Catalog.Extensions;
 using ModularCommerce.Modules.Orders.Extensions;
 using ModularCommerce.Shared.Enpoints;
+using System.ComponentModel;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.ConfigureHttpJsonOptions(options =>
+{
+    options.SerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
+});
 
 builder.Services.AddOpenApi();
 

@@ -22,7 +22,8 @@ namespace ModularCommerce.Modules.Catalog.Features.Categories.GetAllCategories
                 var categories = await sender.Send(new GetAllCategoriesQuery(parentId), ct);
 
                 return Results.Ok(categories);
-            });
+            })
+            .WithTags("Categories");
         }
     }
 }

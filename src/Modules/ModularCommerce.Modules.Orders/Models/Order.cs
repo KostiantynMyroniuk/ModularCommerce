@@ -21,6 +21,13 @@ namespace ModularCommerce.Modules.Orders.Models
         public OrderStatus Status { get; private set; }
         public DateTime CreatedAt { get; private set; }
         public ICollection<OrderItem> Items => _items;
+        public bool CanCancel => Status is OrderStatus.Pending or OrderStatus.Confirmed or OrderStatus.Processing;
+        public bool IsCancelled => Status == OrderStatus.Cancelled;
+
+        public void Cancel()
+        {
+            Status = OrderStatus.Cancelled;
+        }
 
         private Order() { }
 
