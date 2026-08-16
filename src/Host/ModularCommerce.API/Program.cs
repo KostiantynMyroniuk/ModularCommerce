@@ -1,3 +1,5 @@
+using ModularCommerce.API.Behaviors;
+using ModularCommerce.API.Middlewares;
 using ModularCommerce.Modules.Catalog.Extensions;
 using ModularCommerce.Modules.Orders.Extensions;
 using ModularCommerce.Shared.Enpoints;
@@ -14,8 +16,18 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 
 builder.Services.AddOpenApi();
 
+builder.Services.AddProblemDetails();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+
 builder.Services.AddCatalogConfiguration(builder.Configuration);
 builder.Services.AddOrdersConfiguration(builder.Configuration);
+
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
+
+    cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
+});
 
 var app = builder.Build();
 
@@ -27,6 +39,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.UseSwaggerUI(options => options.SwaggerEndpoint("/openapi/v1.json", "openapi"));
 }
+
+app.UseExceptionHandler();
 
 app.MapEndpoints();
 

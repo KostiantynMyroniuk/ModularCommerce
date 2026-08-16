@@ -1,3 +1,4 @@
+using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +16,8 @@ namespace ModularCommerce.Modules.Orders.Extensions
             {
                 options.UseSqlServer(configuration.GetConnectionString("ModularCommerceDb"));
             });
+
+            services.AddValidatorsFromAssembly(typeof(OrdersServicesExtension).Assembly, includeInternalTypes: true);
 
             services.AddMediatR(config =>
             {

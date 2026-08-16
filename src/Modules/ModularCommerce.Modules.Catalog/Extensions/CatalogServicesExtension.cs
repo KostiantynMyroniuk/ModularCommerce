@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +24,8 @@ namespace ModularCommerce.Modules.Catalog.Extensions
             });
 
             services.AddScoped<IProductCatalogReader, ProductCatalogReader>();
+
+            services.AddValidatorsFromAssembly(typeof(CatalogServicesExtension).Assembly, includeInternalTypes: true);
 
             services.AddMediatR(config =>
             {

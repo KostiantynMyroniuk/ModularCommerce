@@ -27,7 +27,7 @@ namespace ModularCommerce.Modules.Catalog.Models
                 Id = Guid.CreateVersion7(),
                 Name = name,
                 Description = description,
-                Sku = sku,
+                Sku = sku.ToUpperInvariant(),
                 Price = price,
                 CategoryId = categoryId
             };
