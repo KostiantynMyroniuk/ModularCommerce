@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using ModularCommerce.Modules.Catalog.Abstractions;
 using ModularCommerce.Modules.Orders.Infrastructure;
 using ModularCommerce.Modules.Orders.Models;
+using ModularCommerce.Shared.Contracts.Orders;
 using ModularCommerce.Shared.Results;
 
 namespace ModularCommerce.Modules.Orders.Features.Orders.CreateOrder
@@ -23,18 +24,18 @@ namespace ModularCommerce.Modules.Orders.Features.Orders.CreateOrder
     {
         private readonly OrdersDbContext _context;
         private readonly IProductCatalogReader _productCatalogReader;
-        private readonly IMediator _mediator;
+        private readonly IPublisher _publisher;
         private readonly ILogger<CreateOrderCommandHandler> _logger;
 
         public CreateOrderCommandHandler(
             OrdersDbContext context,
             IProductCatalogReader productCatalogReader,
-            IMediator mediator,
+            IPublisher publisher,
             ILogger<CreateOrderCommandHandler> logger)
         {
             _context = context;
             _productCatalogReader = productCatalogReader;
-            _mediator = mediator;
+            _publisher = publisher;
             _logger = logger;
         }
 
@@ -70,6 +71,14 @@ namespace ModularCommerce.Modules.Orders.Features.Orders.CreateOrder
             {
                 _context.Orders.Add(order);
                 await _context.SaveChangesAsync(cancellationToken);
+
+                _logger.LogInformation("Order {OrderId} created successfully", order.Id);
+
+                var notification = new OrderCreatedNotification(
+                    request.RequestId,
+                    request.Items.Select(item => new OrderCreatedItemNotification(item.ProductId, item.Quantity)).ToArray());
+
+                await _publisher.Publish(notification, cancellationToken);
 
                 return Result<Guid>.Success(order.Id);
             }

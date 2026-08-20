@@ -30,6 +30,9 @@ namespace ModularCommerce.Modules.Orders.Features.Orders.CreateOrder
             RuleFor(o => o.Address.PostalCode)
                 .MaximumLength(20);
 
+            RuleFor(o => o.Items)
+                .NotEmpty();
+
             RuleForEach(o => o.Items)
                 .SetValidator(new CreateOrderItemValidation());
         }

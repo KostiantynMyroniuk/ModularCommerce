@@ -18,5 +18,9 @@
     <ProjectReference Include="..\..\Modules\ModularCommerce.Modules.Catalog\ModularCommerce.Modules.Catalog.csproj" />
     <ProjectReference Include="..\..\Shared\ModularCommerce.Shared\ModularCommerce.Shared.csproj" />
   </ItemGroup>
+    
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
 
 </Project>
