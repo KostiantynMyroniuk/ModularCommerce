@@ -14,7 +14,6 @@ namespace ModularCommerce.Modules.Orders.Features.Orders.CreateOrder
                 .MaximumLength(200);
 
             RuleFor(o => o.Address.Address2)
-                .NotEmpty()
                 .MaximumLength(200);
 
             RuleFor(o => o.Address.City)

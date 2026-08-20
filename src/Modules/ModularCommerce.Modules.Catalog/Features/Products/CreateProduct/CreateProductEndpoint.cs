@@ -20,7 +20,9 @@ namespace ModularCommerce.Modules.Catalog.Features.Products.CreateProduct
             {
                 var response = await sender.Send(command, ct);
 
-                return Results.Created($"/api/catalog/{response.Value}", response.Value);
+                return response.IsSuccess 
+                    ? Results.Created($"/api/catalog/{response.Value}", response.Value) 
+                    : Results.Conflict(response.ErrorMessage);
             })
             .WithTags("Catalog");
         }
